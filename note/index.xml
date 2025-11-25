@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Notes on 我的个人博客</title>
+    <link>http://localhost:1313/note/</link>
+    <description>Recent content in Notes on 我的个人博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 25 Nov 2025 19:36:47 +0800</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/note/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>博客标题</title>
+      <link>http://localhost:1313/note/first/</link>
+      <pubDate>Tue, 25 Nov 2025 19:36:47 +0800</pubDate>
+      
+      <guid>http://localhost:1313/note/first/</guid>
+      <description>&lt;p&gt;这是摘要
+​&lt;/p&gt;
+&lt;p&gt;​
+这是内容&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
