@@ -2,21 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blogs on 我的个人博客</title>
-    <link>http://localhost:1313/blog/</link>
+    <link>https://renjiankang.github.io/blog/</link>
     <description>Recent content in Blogs on 我的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 25 Nov 2025 22:14:48 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 25 Nov 2025 23:51:13 +0800</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://renjiankang.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>First6</title>
+      <link>https://renjiankang.github.io/blog/first6/</link>
+      <pubDate>Tue, 25 Nov 2025 23:51:13 +0800</pubDate>
+      
+      <guid>https://renjiankang.github.io/blog/first6/</guid>
+      <description>&lt;h1 id=&#34;first6&#34;&gt;First6&lt;/h1&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    
+    <item>
       <title>First5</title>
-      <link>http://localhost:1313/blog/first5/</link>
+      <link>https://renjiankang.github.io/blog/first5/</link>
       <pubDate>Tue, 25 Nov 2025 22:14:48 +0800</pubDate>
       
-      <guid>http://localhost:1313/blog/first5/</guid>
+      <guid>https://renjiankang.github.io/blog/first5/</guid>
       <description>&lt;h1 id=&#34;first5&#34;&gt;First5&lt;/h1&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-txt&#34; data-lang=&#34;txt&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 这是一个文本
@@ -25,10 +35,10 @@
     
     <item>
       <title>First4</title>
-      <link>http://localhost:1313/blog/first4/</link>
+      <link>https://renjiankang.github.io/blog/first4/</link>
       <pubDate>Tue, 25 Nov 2025 22:12:52 +0800</pubDate>
       
-      <guid>http://localhost:1313/blog/first4/</guid>
+      <guid>https://renjiankang.github.io/blog/first4/</guid>
       <description>&lt;h1 id=&#34;first4&#34;&gt;First4&lt;/h1&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-txt&#34; data-lang=&#34;txt&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 这是一个文本
@@ -37,22 +47,23 @@
     
     <item>
       <title>博客标题</title>
-      <link>http://localhost:1313/blog/first/</link>
+      <link>https://renjiankang.github.io/blog/first/</link>
       <pubDate>Mon, 24 Nov 2025 23:03:31 +0800</pubDate>
       
-      <guid>http://localhost:1313/blog/first/</guid>
+      <guid>https://renjiankang.github.io/blog/first/</guid>
       <description>&lt;p&gt;这是摘要
 ​&lt;/p&gt;
 &lt;p&gt;​
-这是内容&lt;/p&gt;</description>
+这是内容
+test&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>First3</title>
-      <link>http://localhost:1313/blog/first3/</link>
+      <link>https://renjiankang.github.io/blog/first3/</link>
       <pubDate>Sun, 14 Jan 2024 07:07:07 +0100</pubDate>
       
-      <guid>http://localhost:1313/blog/first3/</guid>
+      <guid>https://renjiankang.github.io/blog/first3/</guid>
       <description>&lt;h1 id=&#34;first3&#34;&gt;First3&lt;/h1&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;(String &lt;span style=&#34;color:#f92672&#34;&gt;[]&lt;/span&gt; args){
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    System.&lt;span style=&#34;color:#a6e22e&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;println&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;hello word!“)
@@ -62,10 +73,10 @@
     
     <item>
       <title>My First Post</title>
-      <link>http://localhost:1313/blog/first2/</link>
+      <link>https://renjiankang.github.io/blog/first2/</link>
       <pubDate>Sun, 14 Jan 2024 07:07:07 +0100</pubDate>
       
-      <guid>http://localhost:1313/blog/first2/</guid>
+      <guid>https://renjiankang.github.io/blog/first2/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;This is &lt;strong&gt;bold&lt;/strong&gt; text, and this is &lt;em&gt;emphasized&lt;/em&gt; text.&lt;/p&gt;
 &lt;p&gt;Visit the &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo&lt;/a&gt; website!&lt;/p&gt;
