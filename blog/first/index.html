@@ -1,99 +1,170 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="zh-cn"><head><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	
-	<title>我的个人博客  | OpenWrt实现使用Cloudflare Tunnel内网穿透</title>
-	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.152.2">
-	
-	
-	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-	
+<title itemprop="name">OpenWrt实现使用Cloudflare Tunnel内网穿透 | 我的个人博客</title>
+<meta property="og:title" content="OpenWrt实现使用Cloudflare Tunnel内网穿透 | 我的个人博客" />
+<meta name="twitter:title" content="OpenWrt实现使用Cloudflare Tunnel内网穿透 | 我的个人博客" />
+<meta itemprop="name" content="OpenWrt实现使用Cloudflare Tunnel内网穿透 | 我的个人博客" />
+<meta name="application-name" content="OpenWrt实现使用Cloudflare Tunnel内网穿透 | 我的个人博客" />
+<meta property="og:site_name" content="" />
 
-	
-	
-	<link href="/dist/app.css" rel="stylesheet">
-	
+<meta name="description" content="">
+<meta itemprop="description" content="" />
+<meta property="og:description" content="" />
+<meta name="twitter:description" content="" />
 
-	
+<meta property="og:locale" content="zh-cn" />
+<meta name="language" content="zh-cn" />
 
-	
-	
+  <link rel="alternate" hreflang="en" href="https://renjiankang.github.io/blog/first/" title="" />
 
-	
 
-	
-	
-	
-	
-	
-	<script>
-		(function (u, c) {
-			var d = document,
-				t = 'script',
-				o = d.createElement(t),
-				s = d.getElementsByTagName(t)[0];
-			o.src = u;
-			if (c) {
-				o.addEventListener('load', function (e) {
-					c(e);
-				});
-			}
-			s.parentNode.insertBefore(o, s);
-		})('https:\/\/renjiankang.github.io\/lib\/pangu.min.js', function () {
-			pangu.spacingPage();
-		});
-	</script>
-	
-	
-	
+
+
+
+
+<meta name="generator" content="Hugo 0.152.2">
+
+    
+    <meta property="og:url" content="https://renjiankang.github.io/blog/first/">
+  <meta property="og:site_name" content="我的个人博客">
+  <meta property="og:title" content="OpenWrt实现使用Cloudflare Tunnel内网穿透">
+  <meta property="og:description" content="OpenWrt和Cloudflare Tunnel配置 前置准备 OpenWrt 和Cloudflare账号 现在OpenWrt下载相关软件 系统&gt;包管理器 更新列表之后下载 luci-i18n-cloudflared-zh-cn 接下来配置OpenWrt VPN&gt;Cloudflare 零信任隧道 生成Cloudflare令牌， 根据文档生成如下配置文件
+tunnel: openWrt #tunnel名称 credentials-file: /root/.cloudflared/1e9e2b65-faff-4570-8b71-048cb5d68e05.json #更换自己tunnel的id ingress: - hostname: openwrt.***.us.kg #配置tunnel设置写的二级域名 service: http://*.*.*.():80 #配置tunnel设置写的内网服务请求地址 - hostname: myta.***.us.kg service: http://*.*.*.*:80 - service: http_status:404">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2025-11-24T23:03:31+08:00">
+    <meta property="article:modified_time" content="2025-11-24T23:03:31+08:00">
+    <meta property="article:tag" content="网络">
+
+
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="OpenWrt实现使用Cloudflare Tunnel内网穿透">
+  <meta name="twitter:description" content="OpenWrt和Cloudflare Tunnel配置 前置准备 OpenWrt 和Cloudflare账号 现在OpenWrt下载相关软件 系统&gt;包管理器 更新列表之后下载 luci-i18n-cloudflared-zh-cn 接下来配置OpenWrt VPN&gt;Cloudflare 零信任隧道 生成Cloudflare令牌， 根据文档生成如下配置文件
+tunnel: openWrt #tunnel名称 credentials-file: /root/.cloudflared/1e9e2b65-faff-4570-8b71-048cb5d68e05.json #更换自己tunnel的id ingress: - hostname: openwrt.***.us.kg #配置tunnel设置写的二级域名 service: http://*.*.*.():80 #配置tunnel设置写的内网服务请求地址 - hostname: myta.***.us.kg service: http://*.*.*.*:80 - service: http_status:404">
+
+
+    
+
+    <link rel="canonical" href="https://renjiankang.github.io/blog/first/">
+    <link href="/style.min.e390ba7da26222f4dc42a349955d76dbbe44e5ce2535a43de5a70633a0a9ec3c.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="https://renjiankang.github.io/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+    <meta name="color-scheme" content="light dark">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    
+    
 </head>
+<body data-theme = "" class="notransition">
 
-<body class="bg-gray-100 text-gray-700 font-sans">
-	<div class="p-6 sm:p-10 md:p-16 flex flex-wrap">
-		<header class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-1 md:order-1 max-w-2xl">
-			<div
-				class="z-50 bg-gray-100 bg-opacity-75 bg-opacity-custom lg:min-w-0.7 max-w-xl md:float-right md:text-right leading-loose tracking-tight md:sticky md:top-0 pt-2">
-				
-<div>
-	<h2>
-		<a href="https://renjiankang.github.io/" title="我的个人博客" class="heading font-cursive icon">我的个人博客</a>
-	</h2>
+<script src="/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="https://renjiankang.github.io/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link active" href="/blog/">
+                        博客
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/note/">
+                        笔记
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/posts/">
+                        你好
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="">
+                        关于
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
 </div>
-<h1 class="pt-2">OpenWrt实现使用Cloudflare Tunnel内网穿透</h1>
 
-<div class="flex flex-wrap justify-end pt-2 "><div class="md:flex-grow-0 font-light">
-	
-
-	
-
-	
-	
-	
-	
-	<a class="post-taxonomy-tag text-eucalyptus-500"
-		href='/tags/%E7%BD%91%E7%BB%9C'>网络</a>
-	
-	
-	
-</div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light pl-4"
-		datetime="2025-11-24T23:03:31&#43;08:00">2025-11-24 23:03</time>
-</div>
-
-<hr />
-
-
-			</div>
-		</header>
-		<main role="main" class="w-full md:w-3/5 xl:w-1/2 max-w-3xl order-2 md:order-2 min-h-70vh pt-2 pb-4">
-			
-
-<article>
-	<section class="mx-auto content">
-		<div class="c-rich-text"><h1 id="openwrt和cloudflare-tunnel配置">OpenWrt和Cloudflare Tunnel配置</h1>
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">OpenWrt实现使用Cloudflare Tunnel内网穿透</h1>
+                
+                
+                
+                <div class="post-meta">
+                    <time datetime="2025-11-24T23:03:31&#43;08:00" itemprop="datePublished"> Nov 24, 2025 </time>
+                </div>
+                
+            </header>
+            
+            <div class="page-content">
+                <h1 id="openwrt和cloudflare-tunnel配置">OpenWrt和Cloudflare Tunnel配置</h1>
 <h2 id="前置准备">前置准备</h2>
 <h3 id="openwrt-和cloudflare账号">OpenWrt 和Cloudflare账号</h3>
 <p>现在OpenWrt下载相关软件 系统&gt;包管理器 更新列表之后下载 luci-i18n-cloudflared-zh-cn
@@ -108,103 +179,32 @@
 </span></span><span style="display:flex;"><span>  - <span style="color:#f92672">hostname</span>: <span style="color:#ae81ff">myta.***.us.kg</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">service</span>: <span style="color:#ae81ff">http://*.*.*.*:80  </span>
 </span></span><span style="display:flex;"><span>  - <span style="color:#f92672">service</span>: <span style="color:#ae81ff">http_status:404</span>
-</span></span></code></pre></div></div>
-	</section>
-
-
-</article>
-
-		</main>
-		<div class="w-full h-0 flex-none order-3"></div>
-		<aside role="contentinfo"
-			class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-4 md:order-3 md:sticky md:bottom-0 self-end max-w-2xl">
-			<div class="md:float-right md:text-right leading-loose tracking-tight md:mb-2">
-				
-	<div class="md:max-w-xs  flex flex-col md:items-end">
-	<ul class="font-serif flex-grow-0 flex justify-between flex-wrap md:flex-col">
-	
-	
-	<li class="px-1 md:px-0">
-		<a href="/blog/" title="博客 page" 
-			class="font-medium text-medium-red-violet-600 hover:text-medium-red-violet-400" >
-			博客
-		</a>
-	</li>
-	
-	<li class="px-1 md:px-0">
-		<a href="/note/" title="笔记 page" >
-			笔记
-		</a>
-	</li>
-	
-	<li class="px-1 md:px-0">
-		<a href="/posts/" title="你好 page" >
-			你好
-		</a>
-	</li>
-	
-	<li class="px-1 md:px-0">
-		<a href="" title="关于 page" 
-			class="font-medium text-medium-red-violet-600 hover:text-medium-red-violet-400" >
-			关于
-		</a>
-	</li>
-	
-	
-	
-	
-</ul>
-	
-
-	<div class="text-sm text-gray-500 leading-tight a-gray">
-		
-		<br />
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 36 words in this page.
-	</div>
+</span></span></code></pre></div>
+            </div>
+        </article></main>
 </div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
 
-			</div>
-		</aside>
-		<footer class="w-full md:w-3/5 xl:w-1/2 order-3 max-w-3xl md:order-4 pt-2">
-			
-<hr class="double-line" />
-<div class="flex flex-wrap justify-between pb-2 leading-loose font-serif">
-    
-    <a class="flex-grow-0" href="/blog/first3/">
-        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
-            height="24">
-            <path fill="none" d="M0 0h24v24H0z" />
-            <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" /></svg>
-        First3
-    </a>
-    
-    
-    <a class="flex-grow-0" href="/note/first/">
-        博客标题
-        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
-            height="24">
-            <path fill="none" d="M0 0h24v24H0z" />
-            <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" /></svg></a>
-    
+    <div class="footer_social-icons">
 </div>
-<div >
+    <small class="footer_copyright">
+        © 2025 .
+        
+    </small>
+</footer>
 
 
 
-</div>
-<hr />
-<div class="pb-2">
+
+
+
+
     
-</div>
-<hr />
+    <script src="https://renjiankang.github.io/js/main.min.4ee188e1744c19816e95a540b2650ed9f033ea0371e74eac8e717355cfca8741.js" integrity="sha256-TuGI4XRMGYFulaVAsmUO2fAz6gNx506sjnFzVc/Kh0E="></script>
 
-		</footer>
-		
+    
 
-<script src="/dist/app.js"></script>
-
-
-	</div>
 </body>
-
 </html>
