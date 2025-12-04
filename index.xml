@@ -6,7 +6,7 @@
     <description>Recent content on 我的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 01 Dec 2025 07:07:07 +0100</lastBuildDate><atom:link href="https://renjiankang.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 05 Dec 2025 23:03:31 +0800</lastBuildDate><atom:link href="https://renjiankang.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My First Post</title>
       <link>https://renjiankang.github.io/blog/first2/</link>
@@ -69,47 +69,6 @@
       
       <description>&lt;p&gt;这是摘要
 ​&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>OpenWrt实现使用Cloudflare Tunnel内网穿透</title>
-      <link>https://renjiankang.github.io/blog/first/</link>
-      <pubDate>Mon, 24 Nov 2025 23:03:31 +0800</pubDate>
-      
-      <guid>https://renjiankang.github.io/blog/first/</guid>
-      
-      <description>&lt;h1 id=&#34;openwrt和cloudflare-tunnel配置&#34;&gt;OpenWrt和Cloudflare Tunnel配置&lt;/h1&gt;
-&lt;h2 id=&#34;前置准备&#34;&gt;前置准备&lt;/h2&gt;
-&lt;p&gt;一个域名、一个cloudflare账号和一个OpenWrt系统或者其他软路由系统&lt;/p&gt;
-&lt;h3 id=&#34;cloudflare-部分&#34;&gt;Cloudflare 部分&lt;/h3&gt;
-&lt;h4 id=&#34;创建隧道&#34;&gt;创建隧道&lt;/h4&gt;
-&lt;p&gt;登陆Cloudflare &amp;gt;Zero Trust &amp;gt;网络 &amp;gt;连接器&amp;gt; 创建隧道 &amp;gt;选择Cloudflare &amp;gt;输入隧道名称 &amp;gt;保存&lt;/p&gt;
-&lt;h4 id=&#34;配置应用路由关键&#34;&gt;配置应用路由（关键）&lt;/h4&gt;
-&lt;p&gt;登陆Cloudflare &amp;gt;Zero Trust &amp;gt;网络 &amp;gt;连接器&amp;gt; 点击要配置的隧道 &amp;gt;选择&amp;quot;已发布应有程序路由&amp;quot; &amp;gt;添加已发布应用程序路由 &amp;gt;配置子域名、配置服务保存
-路由就配置好了，这一步的设置要和在 OpenWrt配置文件配置的保持一致否则路由不生效&lt;/p&gt;
-&lt;h3 id=&#34;openwrt-部分&#34;&gt;OpenWrt 部分&lt;/h3&gt;
-&lt;p&gt;本次不讨论如何安装OpenWrt系统或者类似相关系统
-先在OpenWrt下载相关软件 系统&amp;gt;包管理器 更新列表之后下载 luci-i18n-cloudflared-zh-cn
-接下来配置OpenWrt VPN&amp;gt;Cloudflare 零信任隧道 生成Cloudflare令牌&lt;/p&gt;
-&lt;h4 id=&#34;令牌&#34;&gt;令牌&lt;/h4&gt;
-&lt;p&gt;登陆Cloudflare &amp;gt;Zero Trust &amp;gt;网络 &amp;gt;连接器 &amp;gt;点击对应的隧道 &amp;gt;看到对应的命令里有token&lt;/p&gt;
-&lt;h4 id=&#34;配置文件&#34;&gt;配置文件&lt;/h4&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;tunnel&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;openWrt&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#tunnel名称&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;credentials-file&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;/root/.cloudflared/1e9e2b65-faff-4570-8b71-048cb5d68e05.json&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#更换自己tunnel的id&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;ingress&lt;/span&gt;:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  - &lt;span style=&#34;color:#f92672&#34;&gt;hostname&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;openwrt.***.us.kg&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#配置tunnel设置写的二级域名&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;service&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;http://*.*.*.():80&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#配置tunnel设置写的内网服务请求地址&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  - &lt;span style=&#34;color:#f92672&#34;&gt;hostname&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;myta.***.us.kg&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;service&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;http://*.*.*.*:80  &lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  - &lt;span style=&#34;color:#f92672&#34;&gt;service&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;http_status:404&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;接下来是源站证书
-登陆Cloudflare 打开&lt;a href=&#34;https://dash.cloudflare.com/argotunnel&#34;&gt;此处&lt;/a&gt;&amp;gt;点击本次使用的证书&amp;gt;授权就会下载证书
-勾选启动&amp;gt;保存并应用OpenWrt就配置好了&lt;/p&gt;
-&lt;h3 id=&#34;配置应用程序路由防护&#34;&gt;配置应用程序路由防护&lt;/h3&gt;
-&lt;h4 id=&#34;策略&#34;&gt;策略&lt;/h4&gt;
-&lt;p&gt;登陆CLoudflare &amp;gt;Zero Trust &amp;gt;访问控制 &amp;gt;策略&amp;gt; 添加策略 &amp;gt;根据自己的需要配置对应的策略即可&lt;/p&gt;</description>
       
     </item>
     

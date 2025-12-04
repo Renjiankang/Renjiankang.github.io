@@ -3,12 +3,12 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://renjiankang.github.io/blog/</loc>
-    <lastmod>2025-12-01T07:07:07+01:00</lastmod>
-  </url><url>
-    <loc>https://renjiankang.github.io/blog/first2/</loc>
-    <lastmod>2025-12-01T07:07:07+01:00</lastmod>
+    <lastmod>2025-12-05T23:03:31+08:00</lastmod>
   </url><url>
     <loc>https://renjiankang.github.io/</loc>
+    <lastmod>2025-12-05T23:03:31+08:00</lastmod>
+  </url><url>
+    <loc>https://renjiankang.github.io/blog/first2/</loc>
     <lastmod>2025-12-01T07:07:07+01:00</lastmod>
   </url><url>
     <loc>https://renjiankang.github.io/blog/first6/</loc>
@@ -26,15 +26,6 @@
     <loc>https://renjiankang.github.io/note/first/</loc>
     <lastmod>2025-11-25T19:36:47+08:00</lastmod>
   </url><url>
-    <loc>https://renjiankang.github.io/blog/first/</loc>
-    <lastmod>2025-11-24T23:03:31+08:00</lastmod>
-  </url><url>
-    <loc>https://renjiankang.github.io/tags/</loc>
-    <lastmod>2025-11-24T23:03:31+08:00</lastmod>
-  </url><url>
-    <loc>https://renjiankang.github.io/tags/%E7%BD%91%E7%BB%9C/</loc>
-    <lastmod>2025-11-24T23:03:31+08:00</lastmod>
-  </url><url>
     <loc>https://renjiankang.github.io/blog/first3/</loc>
     <lastmod>2025-11-14T07:07:07+01:00</lastmod>
   </url><url>
@@ -45,5 +36,7 @@
     <lastmod>2022-11-20T09:03:20-08:00</lastmod>
   </url><url>
     <loc>https://renjiankang.github.io/categories/</loc>
+  </url><url>
+    <loc>https://renjiankang.github.io/tags/</loc>
   </url>
 </urlset>
